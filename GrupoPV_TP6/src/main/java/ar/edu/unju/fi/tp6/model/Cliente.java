@@ -6,21 +6,49 @@ import java.time.LocalDateTime;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name = "CLIENTES")
 @Component
 public class Cliente {
+	@Column(name = "TIPO_DOCUMENTO", nullable = true)
 	private String tipoDocumento;
+	
+	@Id
+	@Column(name = "DNI", nullable = true)
 	private int nroDocumento;
+	
+	@Column(name = "NOMBRE_APELLIDO", nullable = true) 
 	private String nombreApellido;
+	
+	@Column(name = "EMAIL", nullable = true)
 	private String email;
+	
+	@Column(name = "PASS", nullable = true)
 	private String password;
+	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@Column(name = "FECHA_NAC", nullable = true)
 	private LocalDate fechaNacimiento;
+	
+	@Column(name = "EDAD", nullable = true)
 	private int edad;
+	
+	@Column(name = "COD_AREA", nullable = true)
 	private int codigoAreaTelefono;
+	
+	@Column(name = "TELEFONO", nullable = true)
 	private int nroTelefono;
+	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@Column(name = "FECHA_ULTIMA_COMPRA", nullable = true)
 	private LocalDate fechaUltimaCompra;
 	
 
