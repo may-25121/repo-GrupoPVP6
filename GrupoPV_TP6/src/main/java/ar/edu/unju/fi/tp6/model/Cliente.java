@@ -25,7 +25,7 @@ public class Cliente {
 	@Column(name = "DNI", nullable = true)
 	private int nroDocumento;
 	
-	@Column(name = "NOMBRE_APELLIDO", nullable = true)
+	@Column(name = "NOMBRE_APELLIDO", nullable = true) 
 	private String nombreApellido;
 	
 	@Column(name = "EMAIL", nullable = true)
