@@ -7,25 +7,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+
 @Entity
-@Table(name = "compras")
+@Table(name = "COMPRAS")
 @Component
 public class Compra {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
+	@Column(name = "ID_COMPRA")
 	private long id;
+	
 	@Autowired
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PRODUCTO_CODIGO")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "PRODUCT_CODIGO")
 	private Producto producto;
+	
 	@Column(name = "CANTIDAD")
 	private int cantidad;
+	
 	@Column(name = "TOTAL")
 	private double total;
 	
@@ -52,7 +57,8 @@ public class Compra {
 	public void setProducto(Producto producto) {
 		this.producto = producto;
 	}
-
+	
+	
 	public int getCantidad() {
 		return cantidad;
 	}
